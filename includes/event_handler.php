@@ -14,21 +14,24 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $description = $_POST['description'];
         $image_url = $_POST['image_url'];
         $accessibility = $_POST['accessibility'];
+        $title = $_POST['title'];
 
         if ($event_id) {
             // Update existing event
             $sql = "UPDATE events SET 
+                    title='$title',
                     date='$event_date', 
                     time='$event_time', 
                     location='$location', 
                     description='$description', 
                     image='$image_url', 
-                    accessibility='$accessibility' 
+                    accessibility='$accessibility',
+                    approved=0
                     WHERE event_id=$event_id";
         } else {
             // Create new event
-            $sql = "INSERT INTO events (date, time, location, description, image, accessibility) 
-                    VALUES ('$event_date', '$event_time', '$location', '$description', '$image_url', '$accessibility')";
+            $sql = "INSERT INTO events (title, date, time, location, description, image, accessibility) 
+                    VALUES ('$title', '$event_date', '$event_time', '$location', '$description', '$image_url', '$accessibility')";
         }
         $conn->query($sql);
     }

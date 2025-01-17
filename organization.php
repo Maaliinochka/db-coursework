@@ -1,18 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Organization admin Panel</title>
-    <link rel="stylesheet" href="css/organization.css">
-</head>
-<header>
-    <h1>Управление мероприятиями</h1>
-    <nav>
-        <a href="index.php">Главная</a>
-        <a href="organization.php">Организация</a>
-    </nav>
-</header>
+<?php
+$pageTitle = "Управление мероприятиями";
+$additionalStyles = "css/organization.css";
+include 'includes/header.php';
+?>
 <body>
     <div class="admin-container">
         <h2>Управление мероприятиями</h2>
@@ -22,9 +12,13 @@
         <div class="modal" id="eventModal">
             <div class="modal-content">
                 <span class="close-button" onclick="closeModal()">&times;</span>
-                <h1 id="modal-title">Create Event</h1>
+                <h1 id="modal-title">Новое мероприятие</h1>
                 <form id="eventForm" action="includes/event_handler.php" method="post">
                     <input type="hidden" id="event_id" name="event_id">
+                    <div class="form-group">
+                        <label for="title">Название:</label>
+                        <input type="text" id="title" name="title" placeholder="Мяумяу" required>
+                    </div>
                     <div class="form-group">
                         <label for="event_date">Дата:</label>
                         <input type="date" id="event_date" name="event_date" required>
@@ -84,8 +78,7 @@
     </div>
 
     <script src="js/organization.js"></script>
-</body>
-<footer>
-    <p>© 2025 Инвалиды LLC</p>
-</footer>
-</html>
+
+<?php
+include 'includes/footer.php';
+

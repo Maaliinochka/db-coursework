@@ -8,9 +8,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $description = $_POST['description'];
     $image_url = $_POST['image_url'];
     $accessibility = $_POST['accessibility'];
+    $title = $_POST['title'];
 
-    $sql = "INSERT INTO events (event_date, event_time, location, description, image_url, accessibility)
-            VALUES ('$event_date', '$event_time', '$location', '$description', '$image_url', '$accessibility')";
+    $sql = "INSERT INTO events (title, date, time, location, description, image, accessibility)
+            VALUES ('$title', '$event_date', '$event_time', '$location', '$description', '$image_url', '$accessibility')";
 
     if ($conn->query($sql) === TRUE) {
         echo "New event created successfully";

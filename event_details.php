@@ -1,5 +1,7 @@
 <?php
 include 'includes/db_connect.php';
+$pageTitle = "Главная страница";
+$additionalStyles = "css/styles.css";
 include 'includes/header.php';
 
 $id = $_GET['id'];
