@@ -26,30 +26,30 @@
                 <form id="eventForm" action="includes/event_handler.php" method="post">
                     <input type="hidden" id="event_id" name="event_id">
                     <div class="form-group">
-                        <label for="event_date">Date:</label>
+                        <label for="event_date">Дата:</label>
                         <input type="date" id="event_date" name="event_date" required>
                     </div>
                     <div class="form-group">
-                        <label for="event_time">Time:</label>
+                        <label for="event_time">Время:</label>
                         <input type="time" id="event_time" name="event_time" required>
                     </div>
                     <div class="form-group">
-                        <label for="location">Location:</label>
+                        <label for="location">Место проведения:</label>
                         <input type="text" id="location" name="location" placeholder="Event Location" required>
                     </div>
                     <div class="form-group">
-                        <label for="description">Description:</label>
+                        <label for="description">Описание мероприятия:</label>
                         <textarea id="description" name="description" placeholder="Event Description" required></textarea>
                     </div>
                     <div class="form-group">
-                        <label for="image_url">Image URL:</label>
+                        <label for="image_url">URL изображения:</label>
                         <input type="url" id="image_url" name="image_url" placeholder="http://example.com/image.jpg">
                     </div>
                     <div class="form-group">
-                        <label for="accessibility">Accessibility:</label>
+                        <label for="accessibility">надо подумать (доступность):</label>
                         <input type="text" id="accessibility" name="accessibility" placeholder="Accessibility Information" required>
                     </div>
-                    <button type="submit" id="submitButton">Create Event</button>
+                    <button type="submit" id="submitButton">Создать мероприятие</button>
                 </form>
             </div>
         </div>
