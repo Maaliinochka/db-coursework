@@ -3,7 +3,6 @@ $pageTitle = "Управление мероприятиями";
 $additionalStyles = "css/organization.css";
 include 'includes/header.php';
 ?>
-<body>
     <div class="admin-container">
         <h2>Управление мероприятиями</h2>
 
@@ -63,7 +62,7 @@ include 'includes/header.php';
                 echo '<p><strong>Дата:</strong> ' . $row['date'] . '</p>';
                 echo '<p><strong>Время:</strong> ' . $row['time'] . '</p>';
                 echo '<p><strong>Место:</strong> ' . $row['location'] . '</p>';
-                echo '<p><strong>Изображение:</strong> <a href="' . $row['image'] . '" target="_blank">View</a></p>';
+                echo '<p><strong>Изображение:</strong> <a href="' . $row['image'] . '" target="_blank">Открыть</a></p>';
                 echo '<p><strong>Доступность:</strong> ' . $row['accessibility'] . '</p>';
                 echo '<button class="edit-button" onclick="editEvent(' . htmlspecialchars(json_encode($row), ENT_QUOTES, 'UTF-8') . ')">Редактировать</button>';
                 echo '<form action="includes/event_handler.php" method="post" style="display:inline;">
@@ -72,7 +71,6 @@ include 'includes/header.php';
                       </form>';
                 echo '</div>';
             }
-
             ?>
         </div>
     </div>
@@ -81,4 +79,4 @@ include 'includes/header.php';
 
 <?php
 include 'includes/footer.php';
-
+?>

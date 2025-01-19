@@ -1,0 +1,27 @@
+
+.event-tabs, .event-buttons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px 0;
+    gap: 10px;
+    padding: 10px;
+    background-color: rgb(223, 220, 255);
+    border-radius: 20px;
+}
+
+.event-header, .more-info {
+    background-color: white;
+    margin-left: 50px;
+    margin-right: 50px;
+    margin-bottom: 30px;
+    padding: 20px;
+    border-radius: 20px;
+}
+
+.favorite-button, .reviews-button {
+    background-color: rgb(140, 132, 229);
+}
+.favorite-button:hover, .reviews-button:hover {
+    background-color: rgb(120, 112, 209);
+}
