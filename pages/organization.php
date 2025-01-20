@@ -1,7 +1,7 @@
 <?php
 $pageTitle = "Управление мероприятиями";
-$additionalStyles = "css/organization.css";
-include 'includes/header.php';
+$additionalStyles = "../css/organization.css";
+include '../includes/header.php';
 ?>
     <div class="admin-container">
         <h2>Управление мероприятиями</h2>
@@ -12,7 +12,7 @@ include 'includes/header.php';
             <div class="modal-content">
                 <span class="close-button" onclick="closeModal()">&times;</span>
                 <h1 id="modal-title">Новое мероприятие</h1>
-                <form id="eventForm" action="includes/event_handler.php" method="post">
+                <form id="eventForm" action="processes/event_handler.php" method="post">
                     <input type="hidden" id="event_id" name="event_id">
                     <div class="form-group">
                         <label for="title">Название:</label>
@@ -51,8 +51,13 @@ include 'includes/header.php';
             <h3>Существующие мероприятия</h3>
             <?php
             // Fetch and display events from the database
-            include 'includes/db_connect.php';
-            $sql = "SELECT * FROM events";
+            include '../includes/db_connect.php';
+            if (session_status() == PHP_SESSION_NONE) {
+                session_start();
+            }
+            $org_id = $_SESSION['org_id'];
+            $sql = "SELECT * FROM events
+                    WHERE org_id = $org_id";
             $result = $conn->query($sql);
 
             while ($row = $result->fetch_assoc()) {
@@ -65,7 +70,7 @@ include 'includes/header.php';
                 echo '<p><strong>Изображение:</strong> <a href="' . $row['image'] . '" target="_blank">Открыть</a></p>';
                 echo '<p><strong>Доступность:</strong> ' . $row['accessibility'] . '</p>';
                 echo '<button class="edit-button" onclick="editEvent(' . htmlspecialchars(json_encode($row), ENT_QUOTES, 'UTF-8') . ')">Редактировать</button>';
-                echo '<form action="includes/event_handler.php" method="post" style="display:inline;">
+                echo '<form action="processes/event_handler.php" method="post" style="display:inline;">
                         <input type="hidden" name="event_id" value="' . $row['event_id'] . '">
                         <button type="submit" name="delete">Удалить</button>
                       </form>';
@@ -75,8 +80,8 @@ include 'includes/header.php';
         </div>
     </div>
 
-    <script src="js/organization.js"></script>
+    <script src="../js/organization.js"></script>
 
 <?php
-include 'includes/footer.php';
+include '../includes/footer.php';
 ?>

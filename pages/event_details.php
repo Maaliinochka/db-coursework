@@ -1,8 +1,8 @@
 <?php
-include 'includes/db_connect.php';
+include '../includes/db_connect.php';
 $pageTitle = "Детали мероприятия";
-$additionalStyles = "css/event-details.css";
-include 'includes/header.php';
+$additionalStyles = "../css/event-details.css";
+include '../includes/header.php';
 
 $id = $_GET['id'];
 // Информация о мероприятии
@@ -17,8 +17,8 @@ $row_org = $result_org->fetch_assoc();
 // Начало вывода страницы
 ?>
 <div class="event-details">
-    <img src="<?php echo $row['image']; ?>" alt="<?php echo htmlspecialchars($row['title']); ?>" class="event-cover">
     <div class="event-header">
+        <img src="<?php echo $row['image']; ?>" alt="<?php echo htmlspecialchars($row['title']); ?>" class="event-cover">
         <h1><?php echo htmlspecialchars($row['title']); ?></h1>
         <div class="event-info">
             <p><strong>Дата:</strong> <?php echo date('d M Y', strtotime($row['date'])); ?></p>
@@ -28,7 +28,7 @@ $row_org = $result_org->fetch_assoc();
         </div>
         <div class="event-buttons">
             <button class="register-button">Зарегистрироваться</button>
-            <button class="favorite-button">В избранное</button>
+            <button class="favorite-button" id="favoriteButton" data-event-id="<?php echo $row['event_id']; ?>">В избранное</button>
             <button class="reviews-button">Отзывы</button>
         </div>
     </div>
@@ -68,6 +68,25 @@ $row_org = $result_org->fetch_assoc();
             document.getElementById(button.getAttribute('data-tab')).style.display = 'block';
         });
     });
+
+    // Добавление в избранное
+    document.getElementById('favoriteButton').addEventListener('click', function() {
+        var eventId = this.getAttribute('data-event-id');
+
+        // AJAX-запрос для добавления в избранное
+        var xhr = new XMLHttpRequest();
+        xhr.open('POST', '../processes/favorite_process.php', true);
+        xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+        xhr.onload = function() {
+            if (xhr.status === 200) {
+                alert('Мероприятие добавлено в избранное!');
+            } else {
+                alert('Ошибка при добавлении в избранное.');
+            }
+        };
+        xhr.send('event_id=' + eventId);
+    });
+
 </script>
 
-<?php include 'includes/footer.php'; ?>
+<?php include '../includes/footer.php'; ?>

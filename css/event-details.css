@@ -6,7 +6,7 @@
     margin: 20px 0;
     gap: 10px;
     padding: 10px;
-    background-color: rgb(223, 220, 255);
+    background-color: rgb(235, 220, 255);
     border-radius: 20px;
 }
 
@@ -20,8 +20,17 @@
 }
 
 .favorite-button, .reviews-button {
-    background-color: rgb(140, 132, 229);
+    background-color: rgb(166, 132, 229);
 }
 .favorite-button:hover, .reviews-button:hover {
-    background-color: rgb(120, 112, 209);
+    background-color: rgb(154, 112, 209);
+}
+
+.event-cover {
+    border-radius: 20px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    max-height: 500px;
+    max-width: 100%;
 }

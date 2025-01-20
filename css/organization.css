@@ -1,11 +1,3 @@
-body {
-    font-family: Arial, sans-serif;
-    background-color: #f3f0ff;
-    color: #333;
-    margin: 0;
-    padding: 0;
-}
-
 .admin-container {
     max-width: 800px;
     margin: 50px auto;
@@ -17,14 +9,14 @@ body {
 
 h2 {
     text-align: center;
-    color: #5c3bff;
+    color: #a03bff;
 }
 
 .open-modal {
     display: block;
     margin: 20px auto;
     padding: 10px 20px;
-    background-color: #5c3bff;
+    background-color: #903bff;
     color: white;
     border: none;
     border-radius: 10px;
@@ -32,7 +24,7 @@ h2 {
 }
 
 .open-modal:hover {
-    background-color: #4a32cc;
+    background-color: #7532cc;
 }
 
 .modal {
@@ -50,7 +42,7 @@ h2 {
     margin: 10% auto;
     padding: 20px;
     border-radius: 15px;
-    width: 50%;
+    width: fit-content;
     position: relative;
 }
 
@@ -77,7 +69,7 @@ h2 {
 .event-item button {
     margin-top: 10px;
     padding: 5px 10px;
-    background-color: #5c3bff;
+    background-color: #a03bff;
     color: white;
     border: none;
     border-radius: 5px;
@@ -86,5 +78,5 @@ h2 {
 }
 
 .event-item button:hover {
-    background-color: #4a32cc;
+    background-color: #8732cc;
 }

@@ -7,8 +7,9 @@ function closeModal() {
 }
 
 function editEvent(eventData) {
-    document.getElementById('modal-title').innerText = 'Редактирование мероприятие';
+    document.getElementById('modal-title').innerText = 'Редактирование мероприятия';
     document.getElementById('event_id').value = eventData.event_id;
+    document.getElementById('title').value = eventData.title;
     document.getElementById('event_date').value = eventData.date;
     document.getElementById('event_time').value = eventData.time;
     document.getElementById('location').value = eventData.location;

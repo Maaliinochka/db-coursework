@@ -1,0 +1,27 @@
+.auth-container, .register-container {
+    width: fit-content;
+    background-color: white;
+    padding: 10px;
+    border-radius: 20px;
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+}
+
+.toggle-buttons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px 0;
+    gap: 10px;
+    padding: 10px;
+    background-color: rgb(238, 220, 255);
+    border-radius: 20px;
+}
+
+form input, form textarea {
+    margin-bottom: 10px;
+}
